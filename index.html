@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body onload="initClock()">
+
+    <div class="datetime">
+      <div class="date">
+        <span id="day">Day</span>,
+        <span id="month">Month</span>
+        <span id="datee">00</span>,
+        <span id="year">Year</span>
+      </div>
+      <div class="time">
+        <span id="hour">00</span>:
+        <span id="minutes">00</span>:
+        <span id="seconds">00</span>
+        <span id="period">AM</span>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    function updateClock(){
+      var now = new Date();
+      var d = now.getDay(),
+          m = now.getMonth(),
+          dt = now.getDate(),
+          y = now.getFullYear(),
+          h = now.getHours(),
+          min = now.getMinutes(),
+          sec = now.getSeconds(),
+          p = "AM";
+          
+          if(h >= 12){
+            p = "PM";
+          }
+          if(h == 0){
+            h = 12;
+          }
+          if(h > 12){
+            h = h - 12;
+          }
+
+          Number.prototype.pad = function(digits){
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+
+          var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var ids = ["day", "month", "datee", "year", "hour", "minutes", "seconds", "period"];
+          var values = [week[d], months[m], dt.pad(2), y, h.pad(2), min.pad(2), sec.pad(2), p];
+          for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+
+    function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
+    </script>
+
+  </body>
+</html>
