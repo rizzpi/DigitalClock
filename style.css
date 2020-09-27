@@ -1,0 +1,37 @@
+{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #10101E;
+}
+
+.datetime{
+  color: #E5DAD7; 
+  background: #98A4A2  ;
+  font-family: "Times New Roman";
+  width: 340px;
+  border: 3px solid #397269;
+  border-radius: 5px;
+}
+
+
+.date{
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time{
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
